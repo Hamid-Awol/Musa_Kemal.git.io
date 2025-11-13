@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musa Kemal - Agricultural Economist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #header {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #080808; /* Changed to black background */
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 10px 5%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 15px 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(8, 8, 8, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a.active {
+            color: #ff004f;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding-top: 80px;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .header-text {
+            max-width: 600px;
+        }
+
+        .header-subtitle {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #fff; /* Changed to white for better contrast on black background */
+            font-weight: 500;
+        }
+
+        .header-text h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #fff; /* Changed to white for better contrast on black background */
+        }
+
+        .header-text h1 span {
+            color: #ff004f;
+        }
+
+        /* New circle image styling */
+        .header-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #ff004f;
+            box-shadow: 0 0 20px rgba(255, 0, 79, 0.5);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .header-image:hover img {
+            transform: scale(1.05);
+        }
+
+        #about {
+            padding: 80px 0;
+            color: #ababab;
+            scroll-margin-top: 80px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .about-col-2 {
+            flex-basis: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sub-title {
+            font-size: 48px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-description {
+            color: #867979;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-links {
+            margin-right: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .tab-contents ul li span {
+            color: #b54769;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        #services {
+            padding: 80px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            padding: 40px 30px;
+            font-size: 16px;
+            font-weight: 300;
+            border-radius: 10px;
+            transition: transform 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+            text-align: center;
+        }
+
+        .agri-bg {
+            background: linear-gradient(135deg, #2e8b57 0%, #3cb371 100%);
+        }
+
+        .econ-bg {
+            background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
+        }
+
+        .research-bg {
+            background: linear-gradient(135deg, #4682b4 0%, #5f9ea0 100%);
+        }
+
+        .service-item i {
+            font-size: 50px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .service-item h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .service-description {
+            color: #fff;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-btn {
+            color: #fff;
+            background-color: rgb(117, 29, 199);
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .service-btn:hover {
+            background-color: rgb(95, 20, 165);
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        #portfolio {
+            padding: 80px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 4/3;
+        }
+
+        .work img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s, filter 0.5s;
+            object-fit: cover;
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), #ff004f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+            opacity: 1;
+        }
+
+        .layer h3 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 24px;
+            transform: translateY(20px);
+            transition: transform 0.5s 0.2s;
+        }
+
+        .layer p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transform: translateY(20px);
+            transition: transform 0.5s 0.3s;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.5s 0.4s, background 0.3s, color 0.3s;
+        }
+
+        .work:hover .layer h3,
+        .work:hover .layer p,
+        .work:hover .layer a {
+            transform: translateY(0);
+        }
+
+        .layer a:hover {
+            background: #ff004f;
+            color: #fff;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: background 0.5s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #ff004f;
+            color: #fff;
+        }
+
+        #contact {
+            scroll-margin-top: 80px;
+        }
+
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-left p {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+
+        .social-icons a:hover {
+            color: #ff004f;
+            transform: translateY(-5px);
+        }
+
+        .btn.btn2 {
+            display: inline-block;
+            background: #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: background 0.5s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        .form-control {
+            background: #3a3a3a !important;
+            color: #ffffff !important;
+            border: 1px solid #555 !important;
+            padding: 15px !important;
+            margin: 15px 0 !important;
+            font-size: 18px !important;
+            border-radius: 6px !important;
+            width: 100%;
+        }
+
+        .form-control::placeholder {
+            color: #cccccc !important;
+        }
+
+        .form-control:focus {
+            border-color: #ff004f !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 79, 0.25) !important;
+            background: #3a3a3a !important;
+            color: #ffffff !important;
+        }
+
+        form .btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+
+        .copyright i {
+            color: #ff004f;
+        }
+
+        .menu-icon, .close-icon {
+            display: none;
+        }
+
+        #sidemenu {
+            transition: right 0.5s ease-in-out;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .menu-icon, .close-icon {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .header-text h1 {
+                font-size: 32px;
+            }
+
+            .header-subtitle {
+                font-size: 24px;
+            }
+
+            .menu-icon {
+                font-size: 25px;
+                cursor: pointer;
+                z-index: 1001;
+                color: #fff;
+            }
+
+            .close-icon {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                font-size: 25px;
+                cursor: pointer;
+                z-index: 1001;
+                color: #fff;
+            }
+
+            #sidemenu {
+                background: #ff004f;
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 1000;
+                flex-direction: column;
+                transition: right 0.5s ease-in-out;
+                display: flex;
+            }
+
+            #sidemenu li {
+                display: block;
+                margin: 25px;
+                text-align: center;
+            }
+
+            .sub-title {
+                font-size: 36px;
+            }
+
+            .about-col-1, .about-col-2 {
+                flex-basis: 100%;
+            }
+
+            .about-col-1 {
+                margin-bottom: 30px;
+            }
+
+            .about-col-1 img {
+                width: 100%;
+                max-width: 100% !important;
+                height: auto;
+            }
+
+            .about-col-2 {
+                font-size: 14px;
+            }
+
+            .tab-links {
+                font-size: 16px;
+                margin-right: 20px;
+                margin-bottom: 10px;
+            }
+
+            .contact-left, .contact-right {
+                flex-basis: 100%;
+            }
+
+            .copyright {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 10px 5%;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                min-height: 350px;
+                padding: 30px 20px;
+            }
+
+            .work-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-right form {
+                margin-top: 30px;
+            }
+
+            .header-content {
+                padding-top: 100px;
+                text-align: center;
+                flex-direction: column;
+            }
+
+            .header-image {
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+                order: 2;
+            }
+
+            .header-text {
+                order: 1;
+            }
+        }
+
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+            .menu-icon, .close-icon {
+                display: none !important;
+            }
+
+            nav ul {
+                display: flex !important;
+            }
+
+            .header-text h1 {
+                font-size: 42px;
+            }
+
+            .header-subtitle {
+                font-size: 32px;
+            }
+
+            .about-col-1, .about-col-2 {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .about-col-1 {
+                display: flex;
+                justify-content: center;
+            }
+
+            .services-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .work-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-left, .contact-right {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .header-image {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .header-text h1 {
+                font-size: 28px;
+            }
+
+            .header-subtitle {
+                font-size: 20px;
+            }
+
+            .sub-title {
+                font-size: 30px;
+            }
+
+            .service-item {
+                padding: 20px 15px;
+                min-height: 300px;
+            }
+
+            nav {
+                padding: 10px 5%;
+            }
+
+            .header-content {
+                padding-top: 80px;
+            }
+
+            .header-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media only screen and (min-width: 1025px) {
+            .menu-icon, .close-icon {
+                display: none !important;
+            }
+
+            nav ul {
+                display: flex !important;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: space-between;
+                width: auto;
+            }
+
+            nav ul li {
+                margin: 0 20px;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(8, 8, 8, 0.95);
+                z-index: 999;
+                padding: 15px 5%;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <h1 style="font-size: 60px; color:#ff004f; font-weight: bolder;">MUSA</h1>
+            <ul id="sidemenu">
+                <li><a href="#header" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <i class="fas fa-times close-icon" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars menu-icon" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-content">
+            <div class="header-text">
+                <p class="header-subtitle">Agricultural Economist</p>
+                <h1>Hi, I'm <span>Musa Kemal</span> <br>from Ethiopia</h1>
+            </div>
+            <div class="header-image">
+                <img src="images/Home.jpg" alt="Musa Kemal">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------about------>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/about.jpg" alt="About Me">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About me</h1>
+                <p class="about-description">
+                    <strong>My name is Musa Kemal, a dedicated graduate with a Bachelor's degree in Agricultural Economics from Werabe University. Through my active involvement in the National Voluntary Service, I have developed strong discipline, teamwork and communication skills. I possess a comprehensive understanding of sustainable farming techniques, resources optimization and economic analysis. My goal is to apply my analytical abilities to enhance agricultural productivity and profitability. I am passionate about contributing to the development of efficient and sustainable agricultural systems.</strong>
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Agricultural Economics</span><br>Economic analysis and resource optimization</li>
+                        <li><span>Macroeconomics</span><br>Understanding broader economic trends</li>
+                        <li><span>Research Skills</span><br>Data collection and analysis</li>
+                        <li><span>Resources Management</span><br>Efficient allocation of agricultural resources</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2022-2025</span><br>National Voluntary Community Service at Werabe University</li>
+                        <li><span>2024</span><br>Agricultural Economics Research Project</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2022-2025</span><br>BSc in Agricultural Economics at Werabe University</li>
+                        <li><span>CGPA: 3.13/4.00</span><br>Graduated with great distinction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------services--------------->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div class="service-item agri-bg">
+                <i class="fas fa-seedling"></i>
+                <h2>Sustainable Agriculture</h2>
+                <p class="service-description">I provide expertise in sustainable farming techniques that balance productivity with environmental stewardship. My approach integrates modern agricultural practices with traditional knowledge to create resilient farming systems.</p>
+                <a href="#" target="_blank"> <button class="service-btn">Learn more</button></a>
+            </div>
+            <div class="service-item econ-bg">
+                <i class="fas fa-chart-line"></i>
+                <h2>Economic Analysis</h2>
+                <p class="service-description">I specialize in agricultural economic analysis to help farmers and organizations optimize resource allocation, improve profitability, and make data-driven decisions for sustainable growth.</p>
+                <a href="#" target="_blank"><button class="service-btn">Learn more</button></a>
+            </div>
+            <div class="service-item research-bg">
+                <i class="fas fa-search"></i>
+                <h2>Agricultural Research</h2>
+                <p class="service-description">I conduct comprehensive research on agricultural systems, market trends, and resource management to provide evidence-based recommendations for improving agricultural productivity and sustainability.</p>
+                <a href="#" target="_blank"><button class="service-btn">Learn more</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------Portfolio------------>
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sustainable Farming">
+                <div class="layer">
+                    <h3>Sustainable Farming Project</h3>
+                    <p>Developed and implemented sustainable farming techniques for smallholder farmers in the Werabe region, focusing on water conservation and soil health.</p>
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Economic Analysis">
+                <div class="layer">
+                    <h3>Economic Analysis Report</h3>
+                    <p>Conducted comprehensive economic analysis of agricultural markets in Southern Ethiopia, providing insights for policy makers and farmers.</p>
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Resource Management">
+                <div class="layer">
+                    <h3>Resource Management Study</h3>
+                    <p>Research on optimal resource allocation in agricultural production systems, focusing on maximizing efficiency while minimizing environmental impact.</p>
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">View More Projects</a>
+    </div>
+</div>
+
+<!-------------contact------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i>musakemal41@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i>+251924070452</p>
+                <div class="social-icons">
+                    <a href="https://t.me/musa_kemal"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.tiktok.com/@mke12340"><i class="fab fa-tiktok"></i></a>
+                    
+                </div>
+                <a href="images/My-cv.pdf" class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet" id="contact-form">
+                    <div class="mb-3">
+                        <input type="text" name="Name" id="name" class="form-control form-input" placeholder="Your Name" required>
+                        <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="Email" id="email" class="form-control form-input" placeholder="Your Email" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="Message" id="message" rows="6" class="form-control form-input" placeholder="Your Message" required></textarea>
+                        <div class="invalid-feedback">Please enter your message.</div>
+                    </div>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Musa Kemal. Made with <i class="fas fa-heart"></i>  by Hamid Tutorials</p>
+    </div>
+</div>
+
+<script>
+    // Tab functionality
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(var tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(var tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+    
+    // Mobile menu functionality
+    var sidemenu = document.getElementById("sidemenu");
+    
+    function openmenu() {
+        sidemenu.style.right = "0";
+        document.body.style.overflow = "hidden";
+    }
+    
+    function closemenu() {
+        sidemenu.style.right = "-200px";
+        document.body.style.overflow = "auto";
+    }
+    
+    // Close menu when clicking on navigation links
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                closemenu();
+            }
+        });
+    });
+    
+    // Smooth scrolling with fixed navigation offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = window.innerWidth <= 768 ? 80 : 100;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Active navigation highlight on scroll
+    window.addEventListener('scroll', function() {
+        var sections = document.querySelectorAll('#header, #about, #services, #portfolio, #contact');
+        var navLinks = document.querySelectorAll('.nav-link');
+        
+        var current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Form validation
+    const form = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Name validation
+        if (nameInput.value.trim() === '') {
+            nameInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            nameInput.classList.remove('is-invalid');
+        }
+        
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailInput.value.trim())) {
+            emailInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+        
+        // Message validation
+        if (messageInput.value.trim() === '') {
+            messageInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            messageInput.classList.remove('is-invalid');
+        }
+        
+        // If form is valid, submit it
+        if (isValid) {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxKm4FbxWmw5ajwJWUEA18fAtUviVho0D7_L8hrcjdSCEoCjGpWnrwbLFXiNexRAId-/exec';
+            const msg = document.getElementById("msg");
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully";
+                    setTimeout(function(){
+                        msg.innerHTML = ""; 
+                    },5000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message));
+        }
+    });
+</script>
+</body>
+</html>
