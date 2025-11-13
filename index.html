@@ -671,21 +671,28 @@
                 margin-top: 30px;
             }
 
+            /* Updated CSS for centering the image in mobile view */
             .header-content {
                 padding-top: 100px;
                 text-align: center;
                 flex-direction: column;
+                justify-content: center; /* Center vertically */
+                align-items: center; /* Center horizontally */
+                gap: 30px; /* Add consistent spacing between elements */
             }
 
             .header-image {
                 width: 250px;
                 height: 250px;
-                margin-top: 30px;
+                margin: 0; /* Remove any margins that might affect centering */
                 order: 2;
             }
 
             .header-text {
                 order: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center text content */
             }
         }
 
